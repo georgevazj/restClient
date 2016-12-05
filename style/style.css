@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Besom';
+  src: url(Besom.ttf);
+  font-weight: regular;
+}
+
+#quote {
+	font-family: 'Besom';
+}
