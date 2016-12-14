@@ -1,8 +1,16 @@
 angular.module("restclient")
-  .controller("MainController", function($scope,$rootScope, $http){
-  	$http.get("http://localhost:3000/quote").
-  		then(function(response){
-  			console.log('Response ' + JSON.stringify(response));
-  			$scope.response = response.data.value;
-  		});
-  });
+  .controller("MainController", mainCtrl);
+
+  function mainCtrl(restService){
+  	var vm = this;
+  	restService.getQuote()
+  				.then(function(response){
+  					vm.quote = response.data.value.quote;
+  				});
+	vm.reload = function(){
+		restService.getQuote()
+  				.then(function(response){
+  					vm.quote = response.data.value.quote;
+  				});
+	}
+  }
