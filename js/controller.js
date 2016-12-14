@@ -3,8 +3,10 @@ angular.module("restclient")
 
   function mainCtrl(restService){
   	var vm = this;
-    vm.header = "Frase del día"
+    vm.headerQuote = "Una frase aleatoria";
+    vm.headerHash = "Generar un hash";
     vm.button = "Actualizar";
+    vm.nonce = "0000";
     restService.getQuote()
             .then(function(response){
               vm.quote = response.data.value.quote;
@@ -12,7 +14,22 @@ angular.module("restclient")
   	vm.reload = function(){
   		restService.getQuote()
     				.then(function(response){
+              console.log('Respuesta JSON -> ' + JSON.stringify(response));
     					vm.quote = response.data.value.quote;
     				});
   	}
+
+    restService.getHash(vm.nonce)
+            .then(function(response){
+              console.log('Respuesta HASH -> ' + JSON.stringify(response));
+              vm.hash = response.data.hash;
+            });
+    vm.getHash = function(){
+      restService.getHash(vm.nonce)
+            .then(function(response){
+              console.log('Respuesta HASH -> ' + JSON.stringify(response));
+              vm.hash = response.data.hash;
+            });
+
+    }
   }
