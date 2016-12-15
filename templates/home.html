@@ -2,31 +2,6 @@
   <h1> POC - REST <small>Spring / AngularJS</small></h1>
 </div>
 <div class="container" ng-controller="MainController as controller">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">{{ controller.headerQuote }}</h3>
-		</div>
-		<div class="panel-body">
-			<h4>{{ controller.quote }}</h4>
-		</div>
-		<div class="panel-footer">
-			<button class="btn btn-primary"  ng-click="controller.reload()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
-		</div>
-	</div>
-
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">{{ controller.headerHash }}</h3>
-		</div>
-		<div class="panel-body">
-			<div class="input-group">
-				<span class="input-group-addon" id="nonce-addon"><i class="fa fa-barcode" aria-hidden="true"></i></span>
-				<input type="text"  class="form-control" aria-describedby="nonce-addon" placeholder="NONCE" ng-model="controller.nonce"></input>
-				<input type="text"  class="form-control" placeholder="HASH" ng-model="controller.hash" readonly></input>
-			</div>
-		</div>
-		<div class="panel-footer">
-			<button class="btn btn-primary"  ng-click="controller.getHash(controller.nonce)"><i class="fa fa-check-square" aria-hidden="true"></i></button>
-		</div>
-	</div>
+	<quote-panel></quote-panel>
+	<hash-panel></hash-panel>
 </div>

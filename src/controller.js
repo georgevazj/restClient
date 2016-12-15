@@ -1,4 +1,5 @@
-angular.module("restclient")
+angular
+  .module("restclient")
   .controller("MainController", mainCtrl);
 
   function mainCtrl(restService){
