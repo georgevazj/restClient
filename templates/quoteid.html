@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ controller.headerQuoteId }}</h3>
+		<div class="form-group">
+			<input type="text" class="form-control" ng-model="controller.id" placeholder="Buscar...">
+        </div>
+	</div>
+	<div class="panel-body">
+		<h4>{{ controller.quoteid }}</h4>
+	</div>
+	<div class="panel-footer">
+			<button class="btn btn-primary"  ng-click="controller.getQuote()"><i class="fa fa-check-square" aria-hidden="true"></i></button>
+	</div>
+</div>

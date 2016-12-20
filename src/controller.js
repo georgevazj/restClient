@@ -5,6 +5,7 @@ angular
   function mainCtrl(restService){
   	var vm = this;
     vm.headerQuote = "Una frase aleatoria";
+    vm.headerQuoteId = "Frase por ID";
     vm.headerHash = "Generar un hash";
     vm.button = "Actualizar";
     vm.nonce = "0000";
@@ -19,6 +20,14 @@ angular
     					vm.quote = response.data.value.quote;
     				});
   	}
+
+    vm.getQuote = function(){
+      restService.getQuoteById(vm.id)
+            .then(function(response){
+              console.log('Respuesta JSON -> ' + JSON.stringify(response));
+              vm.quoteid = response.data.value.quote;
+            });
+    }
 
     restService.getHash(vm.nonce)
             .then(function(response){
